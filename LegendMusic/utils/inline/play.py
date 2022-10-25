@@ -1,5 +1,6 @@
-from pyrogram.types import InlineKeyboardButton
 import config
+
+from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 
 
 ## After Edits with Timer Bar
