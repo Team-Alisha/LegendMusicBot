@@ -17,8 +17,7 @@ import config
 from strings import get_command
 from LegendMusic import app
 from LegendMusic.misc import HAPP, SUDOERS, XCB
-from LegendMusic
-utils.database import (get_active_chats,
+from LegendMusic.utils.database import (get_active_chats,
                                        remove_active_chat,
                                        remove_active_video_chat)
 from LegendMusic.utils.decorators.language import language
