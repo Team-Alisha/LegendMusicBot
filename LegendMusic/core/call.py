@@ -610,4 +610,4 @@ class Call(PyTgCalls):
                 autoend[chat_id] = {}
 
 
-LEGEND = Call()
+Legend = Call()
