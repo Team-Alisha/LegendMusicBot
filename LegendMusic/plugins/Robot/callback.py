@@ -22,8 +22,7 @@ from LegendMusic.utils.decorators.language import languageCB
 from LegendMusic.utils.formatters import seconds_to_min
 from LegendMusic.utils.inline.play import (panel_markup_1,
                                           stream_markup,
-                                          telegram_markup,
-                                          close_keyboard)
+                                          telegram_markup)
 from LegendMusic.utils.stream.autoclear import auto_clean
 from LegendMusic.utils.thumbnails import gen_thumb
 
