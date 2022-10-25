@@ -1,0 +1,130 @@
+{
+    "name": "˹ʟᴇɢᴇɴᴅ ✘ ᴍᴜsɪᴄ˼",
+    "description": "A Telegram Music Player Bot, written in Python with Pyrogram and Py-Tgcalls.",
+    "logo": "https://telegra.ph/file/51fc0d0b6b99b10379709.jpg",
+    "keywords": [
+    "python3",
+    "telegram",
+    "bot",
+    "LegendX",
+    "MusicBot",
+    "telegram-bot",
+    "pyrogram"
+    ],
+    "stack": "container",
+    "env": {
+      "API_ID": {
+        "description": "Get this value from https://my.telegram.org",
+        "value": "",
+        "required": true
+      },
+      "API_HASH": {
+        "description": "Get this value from https://my.telegram.org",
+        "value": "",
+        "required": true
+      },
+      "AUTO_LEAVING_ASSISTANT": {
+        "description": "If you want your assistant to leave all chats automatically after some time.",
+        "value": "False",
+        "required": true
+      },
+      "BOT_TOKEN": {
+        "description": "A Bot's Token From Botfather",
+        "value": "",
+        "required": true
+      },
+      "DURATION_LIMIT_MIN": {
+        "description": "Maximum duration that your bot can play in minutes.",
+        "value": "900",
+        "required": true
+      },
+      "MONGO_DB_URI": {
+        "description": "Get a mongodb url from https://cloud.mongodb.com.",
+        "value": "",
+        "required": true
+      },
+      "AUTO_DOWNLOADS_CLEAR": {
+        "description": "Fill True if you want to automatically clear the downloaded files after playing.",
+        "value": "True",
+        "required": true
+      },
+      "MUSIC_BOT_NAME": {
+        "description": "A name for your Music Bot. You can use special characters bot ko jhaat farak ni padega",
+        "value": "˹ʟᴇɢᴇɴᴅ ✘ ᴍᴜsɪᴄ˼",
+        "required": false
+      },
+      "SPOTIFY_CLIENT_ID": {
+        "description": "Spotify Client Id",
+        "value": "",
+        "required": false
+      },
+      "SPOTIFY_CLIENT_SECRET": {
+        "description": "Spotify client secret",
+        "value": "",
+        "required": false
+      },
+      "OWNER_ID": {
+        "description": "The user id(s) of user(s) whom you would like to add as a OWNER. Multiple values shall be seperated with a space.",
+        "value": "5048100752",
+        "required": true
+      },
+      "STRING_SESSION": {
+        "description": "A Pyrogram String Session. One Assistant is Compulsory.",
+        "value": "",
+        "required": true
+      },
+      "PING_IMG_URL": {
+        "description": "The pic which will be shown when you give the /ping cmd to the bot.",
+        "value": "",
+        "required": false
+      },
+      "START_IMG_URL": {
+        "description": "The pic which will be shown when you /start the bot in private.",
+        "value": "",
+        "required": false
+      },
+      "HEROKU_API_KEY": {
+        "description": "Your Heroku account's API key",
+        "value": "",
+        "required": true
+      },
+      "HEROKU_APP_NAME": {
+        "description": "Your heroku app/bot's name",
+        "value": "",
+        "required": true
+      },
+      "LOG_GROUP_ID": {
+        "description": "Your Log Group ID, add your bot and promote as an admin with full rights!. Channel ki id mat daal dena bsdk.",
+        "value": "",
+        "required": true
+      },
+      "SUPPORT_GROUP": {
+        "description": "Link of your support group ! Channel ki id mat daal dena bsdk.",
+        "value": "https://t.me/YaaroKiMehfil_YKM",
+        "required": true
+      },
+      "SUPPORT_CHANNEL": {
+        "description": "Link of your telegram channel.",
+        "value": "https://t.me/OYEE_JAANU",
+        "required": true
+      }
+    },
+    "buildpacks": [
+          {
+              "url": "heroku/python"
+          },
+          {
+              "url": "heroku/nodejs"
+          },
+          {
+              "url": "https://github.com/jonathanong/heroku-buildpack-ffmpeg-latest.git"
+          }
+      ],
+      "formation": {
+          "worker": {
+              "quantity": 1,
+              "size": "free"
+          }
+      },
+      "stack": "container"
+  }
