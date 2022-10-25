@@ -210,7 +210,6 @@ async def start_comm(client, message: Message, _):
                     caption=_["start_2"].format(
                         message.from_user.first_name,
                         config.MUSIC_BOT_NAME,
-                        uptime
                     ),
                     reply_markup=InlineKeyboardMarkup(out),
                 )
