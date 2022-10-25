@@ -50,7 +50,7 @@ async def init():
         "Necessary Modules Imported Successfully."
     )
     await userbot.start()
-    awai Legend.start()
+    await Legend.start()
     try:
         await Legend.stream_call(
             "https://telegra.ph/file/de3464aa7d6bfafdd2dc3.mp4"
