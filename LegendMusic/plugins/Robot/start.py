@@ -88,7 +88,7 @@ async def start_comm(client, message: Message, _):
                     details = stats.get(vidid)
                     title = (details["title"][:35]).title()
                     if vidid == "telegram":
-                        msg += f"🔗[ᴛᴇʟᴇɢʀᴀᴍ ᴍᴇᴅɪᴀ](https://t.me/YaaroKiMehfil_YKM) ** ᴩʟᴀʏᴇᴅ {count} ᴛɪᴍᴇs**\n\n"
+                        msg += f"🔗[ᴛᴇʟᴇɢʀᴀᴍ ᴍᴇᴅɪᴀ](https://t.me/DevilsHeavenMF) ** ᴩʟᴀʏᴇᴅ {count} ᴛɪᴍᴇs**\n\n"
                     else:
                         msg += f"🔗 [{title}](https://www.youtube.com/watch?v={vidid}) ** played {count} times**\n\n"
                 msg = _["ustats_2"].format(tot, tota, limit) + msg
@@ -210,6 +210,7 @@ async def start_comm(client, message: Message, _):
                     caption=_["start_2"].format(
                         message.from_user.first_name,
                         config.MUSIC_BOT_NAME,
+                        uptime
                     ),
                     reply_markup=InlineKeyboardMarkup(out),
                 )
