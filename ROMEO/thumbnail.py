@@ -110,7 +110,7 @@ async def generate_thumb(videoid,bot_name):
 
             image4 = ImageDraw.Draw(image2)
             image4.text((15, 10), "LEGEND X MUSIC", fill="white", stroke_width=1, stroke_fill="white",font = font3, align ="left") 
-            image4.text((670, 150), "NOW PLAYING", fill="white", font = font2, stroke_width=2, stroke_fill="white", align ="left") 
+            image4.text((670, 150), "LEGEND OP", fill="white", font = font2, stroke_width=2, stroke_fill="yellow", align ="left") 
 
             # title
             title1 = truncate(title)
