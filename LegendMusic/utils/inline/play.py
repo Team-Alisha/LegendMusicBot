@@ -333,17 +333,6 @@ def panel_markup_1(_, videoid, chat_id):
     ]
     return buttons
 
-## Extra Shit
-
-close_keyboard = InlineKeyboardMarkup( 
-            [
-                [
-                    InlineKeyboardButton(
-                        text=_["CLOSEMENU_BUTTON"], callback_data="close"
-                    )
-                ]    
-            ]
-        )
 
 
 ## Queue Markup
