@@ -18,8 +18,7 @@ from LegendMusic.utils.inline.play import (stream_markup,
 from LegendMusic.utils.inline.playlist import close_markup
 from LegendMusic.utils.pastebin import Legendbin
 from LegendMusic.utils.stream.queue import put_queue, put_queue_index
-from LegendMusic.utils.thumbnails import gen_thumb
-
+from LegendMusic.utils.thumbnails import gen_thumb, gen_thumbb
 
 async def stream(
     _,
@@ -40,7 +39,7 @@ async def stream(
         if not await is_video_allowed(chat_id):
             raise AssistantErr(_["play_7"])
     if forceplay:
-        await LegendX.force_stop_stream(chat_id)
+        await Legend.force_stop_stream(chat_id)
     if streamtype == "playlist":
         msg = f"{_['playlist_16']}\n\n"
         count = 0
@@ -110,8 +109,7 @@ async def stream(
                     original_chat_id,
                     photo=img,
                     caption=_["stream_1"].format(
-                        user_name,
-                        f"https://t.me/{app.username}?start=info_{vidid}",
+                        title[:20], duration_min, user_name
                     ),
                     reply_markup=InlineKeyboardMarkup(button),
                 )
@@ -160,12 +158,16 @@ async def stream(
                 user_id,
                 "video" if video else "audio",
             )
+            img = await gen_thumbb(vidid)
+            button = stream_markup(_, vidid, chat_id)
             position = len(db.get(chat_id)) - 1
-            await app.send_message(
+            await app.send_photo(
                 original_chat_id,
-                _["queue_4"].format(
-                    position, title[:30], duration_min, user_name
+                photo=img,
+                caption=_["queue_4"].format(
+                    position, title[:20], duration_min, user_name
                 ),
+                reply_markup=InlineKeyboardMarkup(button),
             )
         else:
             if not forceplay:
@@ -191,8 +193,7 @@ async def stream(
                 original_chat_id,
                 photo=img,
                 caption=_["stream_1"].format(
-                    user_name,
-                    f"https://t.me/{app.username}?start=info_{vidid}",
+                    title[:20], duration_min, user_name
                 ),
                 reply_markup=InlineKeyboardMarkup(button),
             )
@@ -214,17 +215,21 @@ async def stream(
                 user_id,
                 "audio",
             )
+            img = await gen_thumbb(vidid)
+            button = stream_markup(_, vidid, chat_id)
             position = len(db.get(chat_id)) - 1
-            await app.send_message(
+            run = await app.send_photo(
                 original_chat_id,
-                _["queue_4"].format(
-                    position, title[:30], duration_min, user_name
+                photo=img,
+                caption=_["queue_4"].format(
+                    position, title[:20], duration_min, user_name
                 ),
+                reply_markup=InlineKeyboardMarkup(button),
             )
         else:
             if not forceplay:
                 db[chat_id] = []
-            await LegendX.join_call(
+            await Legend.join_call(
                 chat_id, original_chat_id, file_path, video=None
             )
             await put_queue(
@@ -339,7 +344,7 @@ async def stream(
             n, file_path = await YouTube.video(link)
             if n == 0:
                 raise AssistantErr(_["str_3"])
-            await Legend.join_call(
+            await Anon.join_call(
                 chat_id, original_chat_id, file_path, video=status
             )
             await put_queue(
@@ -391,7 +396,7 @@ async def stream(
         else:
             if not forceplay:
                 db[chat_id] = []
-            await Legend.join_call(
+            await Anon.join_call(
                 chat_id,
                 original_chat_id,
                 link,
