@@ -343,7 +343,7 @@ close_keyboard = InlineKeyboardMarkup(
 
                     InlineKeyboardButton(
 
-                        text=_["CLOSEMENU_BUTTON"], callback_data="close"
+                        text="✯ ᴄʟᴏsᴇ ✯", callback_data="close"
 
                     )
 
